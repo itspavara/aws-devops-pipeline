@@ -1,0 +1,24 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      java: corretto8
+    commands:
+      - echo "Installing dependencies"
+      - mvn -version
+
+  build:
+    commands:
+      - echo "Build started on $(date)"
+      - mvn clean package
+
+  post_build:
+    commands:
+      - echo "Build completed on $(date)"
+
+artifacts:
+  files:
+    - target/web-project.war
+    - appspec.yml
+  discard-paths: no
