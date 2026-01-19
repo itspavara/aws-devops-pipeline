@@ -25,11 +25,9 @@ if [ -z "$WAR_NAME" ]; then
     echo "WARNING: No WAR file found!"
 else
     echo "Deployed WAR: $WAR_NAME"
-    
-    # Wait for WAR to be extracted (Tomcat auto-extracts WAR files)
+
     sleep 15
     
-    # Check if web-project directory was created
     if [ -d "/var/lib/tomcat/webapps/web-project" ]; then
         echo "Application extracted successfully!"
     else
@@ -38,7 +36,6 @@ else
     fi
 fi
 
-# Test Tomcat directly
 echo "Testing Tomcat..."
 TOMCAT_TEST=$(curl -s -o /dev/null -w "%{http_code}" http://localhost:8080/web-project/ || echo "000")
 echo "Tomcat response code: $TOMCAT_TEST"
