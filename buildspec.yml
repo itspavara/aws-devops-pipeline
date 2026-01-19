@@ -22,3 +22,4 @@ artifacts:
     - target/*.war
     - scripts/**/*
   discard-paths: no
+  name: my-app.zip
